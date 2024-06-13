@@ -9,16 +9,15 @@
   <body>
     <h1>Hello, world!</h1>
     <div id="app">
-      <p>{{ title }} - {{ author}} - {{ age}}</p>
-      <button v-on:click="age++">Increase age</button>
-      <button v-on:click="age--">Decrease age</button>
-      <div @click="title = 'something else'">Change book title on click</div>
-      <div @click="changeTitle">
-        Change book title by method and local variable
+      <div v-if="showBooks">
+        <p>{{ title }} - {{ author}} - {{ age}}</p>
       </div>
-      <div @click="changeTitleByArgument('me')">
-        Change book title by passing argument into method
-      </div>
+      <button @click="toggleShowBooks">
+        <span v-if="showBooks">Hide Books</span>
+        <!-- <span v-if="!showBooks">Show Books</span> -->
+        <span v-else>Show Books</span>
+      </button>
+      <div v-show="showBooks">currently showing books</div>
     </div>
     <script src="app.js"></script>
   </body>
