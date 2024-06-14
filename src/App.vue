@@ -12,7 +12,17 @@
       <p>What's up?</p>
     </Modal>
   </div>
+
+  <!-- Second Modal -->
+
+  <div v-if="showModalTwo">
+    <Modal @close="toggleModalTwo">
+      <h1>Hi, Luke second time</h1>
+      <p>What's up brother?</p>
+    </Modal>
+  </div>
   <button @click.alt="toggleModal">Open modal (alt)</button>
+  <button @click="toggleModalTwo">Open modal</button>
 </template>
 
 <script>
@@ -24,14 +34,16 @@ export default {
   data() {
     return {
       title: 'My First Vue App',
-      header: 'Sign up for the Giveaway!',
-      text: 'Grab your ninja swag for half price!',
       showModal: false,
+      showModalTwo: false,
     }
   },
   methods: {
     toggleModal() {
       this.showModal = !this.showModal;
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo;
     }
   }
 }
